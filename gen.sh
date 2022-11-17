@@ -19,7 +19,7 @@ fi
 mkdir toolchain && cd toolchain || exit 1
 mkdir bin && cd bin || exit 1
 
-for i in addr2line ar as dwp nm objcopy objdump ranlib readelf size strings strip; do
+for i in addr2line ar dwp nm objcopy objdump ranlib readelf size strings strip; do
   printf "#!/bin/sh\n" > "$1-$i"
   printf "exec llvm-%s \"\$@\"\n" "$i" >> "$1-$i"
   chmod +x "$1-$i"
